@@ -21,14 +21,14 @@ exports.handler = async (event, context) => {
 
 	  const client = new MongoClient(url, { useUnifiedTopology: true });
   	await client.connect();
-  	const db = client.db('eleventy_demo');
-  	const comments = db.collection('comments');
+  	const db = client.db('admin');
+  	const comments = db.collection('ConversationIntelligence');
 
     let commentOb = {
-      text: comment.text, 
-      film: comment.film, 
+      text: comment.text,
+      film: comment.film,
       user: {
-        email: user.email, 
+        email: user.email,
         name: user.user_metadata.full_name
       },
       posted: new Date()

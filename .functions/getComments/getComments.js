@@ -15,8 +15,8 @@ exports.handler = async (event, context) => {
 
     const client = new MongoClient(url, { useUnifiedTopology: true });
     await client.connect();
-    const db = client.db('eleventy_demo');
-    const comments = db.collection('comments');
+    const db = client.db('admin');
+    const comments = db.collection('ConversationIntelligence');
 
     const query = { "film": film };
     const commentArray = await comments.find(query).sort({posted:1}).toArray();
